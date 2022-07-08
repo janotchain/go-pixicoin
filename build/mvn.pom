@@ -11,7 +11,7 @@
 
   <name>Android pixicoin Client</name>
   <description>Android port of the go-pixicoin libraries and node</description>
-  <url>https://github.com/Pixiechain/pxc</url>
+  <url>https://github.com/Pixichain/pxc</url>
   <inceptionYear>2015</inceptionYear>
 
   <licenses>
@@ -48,10 +48,10 @@
 
   <issueManagement>
     <system>GitHub Issues</system>
-    <url>https://github.com/Pixiechain/pxc/issues/</url>
+    <url>https://github.com/Pixichain/pxc/issues/</url>
   </issueManagement>
 
   <scm>
-    <url>https://github.com/Pixiechain/pxc</url>
+    <url>https://github.com/Pixichain/pxc</url>
   </scm>
 </project>

@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.
 
+//go:build none
 // +build none
 
 /*
@@ -180,19 +181,19 @@ func doInstall(cmdline []string) {
 	// Check Go version. People regularly open issues about compilation
 	// failure with outdated Go. This should save them the trouble.
 	if !strings.Contains(runtime.Version(), "devel") {
-			// Figure out the minor version number since we can't textually compare (1.10 < 1.7)
-			var minor int
-			fmt.Sscanf(strings.TrimPrefix(runtime.Version(), "go1."), "%d", &minor)
+		// Figure out the minor version number since we can't textually compare (1.10 < 1.7)
+		var minor int
+		fmt.Sscanf(strings.TrimPrefix(runtime.Version(), "go1."), "%d", &minor)
 
-			if minor < 7 {
-				log.Println("You have Go version", runtime.Version())
-				log.Println("go-ethereum requires at least Go version 1.7 and cannot")
-				log.Println("be compiled with an earlier version. Please upgrade your Go installation.")
-				os.Exit(1)
-			}
-
+		if minor < 7 {
+			log.Println("You have Go version", runtime.Version())
+			log.Println("go-ethereum requires at least Go version 1.7 and cannot")
+			log.Println("be compiled with an earlier version. Please upgrade your Go installation.")
+			os.Exit(1)
 		}
-			// Compile packages given as arguments, or everything if there are no arguments.
+
+	}
+	// Compile packages given as arguments, or everything if there are no arguments.
 	packages := []string{"./..."}
 	if flag.NArg() > 0 {
 		packages = flag.Args()
@@ -363,7 +364,7 @@ func doArchive(cmdline []string) {
 	var (
 		env      = build.Env()
 		base     = archiveBasename(*arch, env)
-		pxc     = "pxc-" + base + ext
+		pxc      = "pxc-" + base + ext
 		alltools = "pxc-alltools-" + base + ext
 	)
 	maybeSkipArchive(env)
@@ -649,7 +650,7 @@ func doWindowsInstaller(cmdline []string) {
 	var (
 		devTools []string
 		allTools []string
-		pxcTool string
+		pxcTool  string
 	)
 	for _, file := range allToolsArchiveFiles {
 		if file == "COPYING" { // license, copied later
@@ -723,7 +724,7 @@ func doAndroidArchive(cmdline []string) {
 	// Build the Android archive and Maven resources
 	build.MustRun(goTool("get", "golang.org/x/mobile/cmd/gomobile"))
 	build.MustRun(gomobileTool("init", "--ndk", os.Getenv("ANDROID_NDK")))
-	build.MustRun(gomobileTool("bind", "--target", "android", "--javapkg", "org.pixicoin", "-v", "github.com/Pixiechain/pxc/mobile"))
+	build.MustRun(gomobileTool("bind", "--target", "android", "--javapkg", "org.pixicoin", "-v", "github.com/Pixichain/pxc/mobile"))
 
 	if *local {
 		// If we're building locally, copy bundle to build dir and skip Maven
@@ -843,7 +844,7 @@ func doXCodeFramework(cmdline []string) {
 	// Build the iOS XCode framework
 	build.MustRun(goTool("get", "golang.org/x/mobile/cmd/gomobile"))
 	build.MustRun(gomobileTool("init"))
-	bind := gomobileTool("bind", "--target", "ios", "--tags", "ios", "-v", "github.com/Pixiechain/pxc/mobile")
+	bind := gomobileTool("bind", "--target", "ios", "--tags", "ios", "-v", "github.com/Pixichain/pxc/mobile")
 
 	if *local {
 		// If we're building locally, use the build folder and stop afterwards

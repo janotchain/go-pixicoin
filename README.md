@@ -4,7 +4,7 @@ Official golang implementation of the Ethereum-based pixicoin protocol.
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pixicoins/Lobby)
 
-Binaries are published at https://github.com/Pixiechain/pxc/releases.
+Binaries are published at https://github.com/Pixichain/pxc/releases.
 
 ## Building the source
 

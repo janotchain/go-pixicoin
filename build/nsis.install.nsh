@@ -3,9 +3,9 @@ InstallDir "$InstDir"
 OutFile "${OUTPUTFILE}" # set through command line arguments
 
 # Links for "Add/Remove Programs"
-!define HELPURL "https://github.com/Pixiechain/pxc/issues"
-!define UPDATEURL "https://github.com/Pixiechain/pxc/releases"
-!define ABOUTURL "https://github.com/Pixiechain/pxc"
+!define HELPURL "https://github.com/Pixichain/pxc/issues"
+!define UPDATEURL "https://github.com/Pixichain/pxc/releases"
+!define ABOUTURL "https://github.com/Pixichain/pxc"
 !define /date NOW "%Y%m%d"
 
 PageEx license
